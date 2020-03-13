@@ -1,0 +1,11 @@
+--- drivers/misc/mediatek/cmdq/v2/cmdq_def.h	2019-08-28 09:42:28.000000000 +0100
++++ drivers/misc/mediatek/cmdq/v2/cmdq_def.h	2020-02-01 21:45:41.703783403 +0000
+@@ -22,7 +22,7 @@
+ #ifdef CMDQ_COMMON_ENG_SUPPORT
+ #include "cmdq_engine_common.h"
+ #else
+-#include "cmdq_engine.h"
++#include "mt6755/cmdq_engine.h"
+ #endif
+ 
+ #define CMDQ_SPECIAL_SUBSYS_ADDR (99)

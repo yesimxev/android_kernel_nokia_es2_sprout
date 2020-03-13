@@ -1,0 +1,156 @@
+--- a/drivers/misc/mediatek/include/mt-plat/mt6755/include/mach/mt_thermal.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/include/mt-plat/mt6755/include/mach/mt_thermal.h	2020-02-01 21:43:07.971787245 +0000
+@@ -24,7 +24,7 @@
+ 
+ #include "mt-plat/sync_write.h"
+ #include "mtk_thermal_typedefs.h"
+-#include "mt_gpufreq.h"
++#include "../../../../base/power/mt6755/mt_gpufreq.h"
+ 
+ /*
+ Bank0 : CPU_mp0     (TS_MCU4)
+--- a/drivers/misc/mediatek/base/power/ppm_v1/inc/mt_ppm_internal.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/base/power/ppm_v1/inc/mt_ppm_internal.h	2020-02-01 21:44:36.343785036 +0000
+@@ -31,7 +31,7 @@
+ #include <linux/sched.h>
+ 
+ #include "mach/mt_ppm_api.h"
+-#include "mt_ppm_platform.h"
++#include "../src/mach/mt6755/mt_ppm_platform.h"
+ 
+ /*==============================================================*/
+ /* Definitions							*/
+--- a/drivers/misc/mediatek/cmdq/v2/cmdq_def.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/cmdq/v2/cmdq_def.h	2020-02-01 21:45:41.703783403 +0000
+@@ -22,7 +22,7 @@
+ #ifdef CMDQ_COMMON_ENG_SUPPORT
+ #include "cmdq_engine_common.h"
+ #else
+-#include "cmdq_engine.h"
++#include "mt6755/cmdq_engine.h"
+ #endif
+ 
+ #define CMDQ_SPECIAL_SUBSYS_ADDR (99)
+--- a/drivers/misc/mediatek/ext_disp/extd_multi_control.c	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/ext_disp/extd_multi_control.c	2020-02-01 21:46:58.123781493 +0000
+@@ -16,8 +16,8 @@
+ 
+ #include "extd_multi_control.h"
+ #include "disp_drv_platform.h"
+-#include "external_display.h"
+-#include "extd_platform.h"
++#include "mt6755/external_display.h"
++#include "mt6755/extd_platform.h"
+ #include "extd_log.h"
+ #include "mtk_ovl.h"
+ 
+--- a/drivers/misc/mediatek/ext_disp/extd_factory.c	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/ext_disp/extd_factory.c	2020-02-01 22:54:42.871679914 +0000
+@@ -17,7 +17,7 @@
+ #include "extd_log.h"
+ #include "extd_factory.h"
+ #include "extd_info.h"
+-#include "external_display.h"
++#include "mt6755/external_display.h"
+ 
+ #include "dpi_dvt_test.h"
+ 
+--- a/drivers/misc/mediatek/m4u/2.0/m4u_v2.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/m4u/2.0/m4u_v2.h	2020-02-01 22:56:22.619677421 +0000
+@@ -15,7 +15,7 @@
+ #define __M4U_V2_H__
+ #include <linux/ioctl.h>
+ #include <linux/fs.h>
+-#include "m4u_port.h"
++#include "../../m4u/mt6755/m4u_port.h"
+ #include <linux/scatterlist.h>
+ 
+ typedef int M4U_PORT_ID;
+--- a/drivers/misc/mediatek/m4u/2.0/m4u_pgtable.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/m4u/2.0/m4u_pgtable.h	2020-02-01 22:58:20.119674485 +0000
+@@ -14,7 +14,7 @@
+ #ifndef __M4U_PGTABLE_H__
+ #define __M4U_PGTABLE_H__
+ 
+-#include "m4u_reg.h"
++#include "../mt6755/m4u_reg.h"
+ 
+ /* ================================================================= */
+ /* 2 level pagetable: pgd -> pte */
+--- a/drivers/misc/mediatek/mu3d/hal/mu3d_hal_hw.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/mu3d/hal/mu3d_hal_hw.h	2020-02-01 22:59:14.363673129 +0000
+@@ -161,7 +161,7 @@
+ #include "ssusb_usb3_sys_csr_c_header.h"
+ #include "ssusb_usb2_csr_c_header.h"
+ #include "ssusb_sifslv_ippc_c_header.h"
+-#include "mtk-phy.h"
++#include "../../mu3phy/mtk-phy.h"
+ 
+ #ifdef EXT_VBUS_DET
+ #define FPGA_REG 0xf0008098
+--- a/drivers/misc/mediatek/uart/include/mtk_uart.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/uart/include/mtk_uart.h	2020-02-01 23:01:13.251670158 +0000
+@@ -18,7 +18,7 @@
+ #include <mach/mt_reg_base.h>
+ #endif
+ #include <mt-plat/sync_write.h>
+-#include "platform_uart.h"
++#include "../mt6755/platform_uart.h"
+ 
+ /*---------------------------------------------------------------------------*/
+ #if defined(ENABLE_VFIFO_DEBUG)
+--- a/drivers/misc/mediatek/uart/include/mtk_uart_intf.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/uart/include/mtk_uart_intf.h	2020-02-01 23:01:51.299669207 +0000
+@@ -14,7 +14,7 @@
+ #ifndef __MTK_UART_INTF_H__
+ #define __MTK_UART_INTF_H__
+ 
+-#include "platform_uart.h"
++#include "../mt6755/platform_uart.h"
+ #include <linux/platform_device.h>
+ /*---------------------------------------------------------------------------*/
+ /* fiq debugger */
+--- a/drivers/misc/mediatek/video/mt6755/layering_rule.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/video/mt6755/layering_rule.h	2020-02-01 23:02:35.719668097 +0000
+@@ -13,7 +13,7 @@
+ #ifndef __LAYER_STRATEGY_EX__
+ #define __LAYER_STRATEGY_EX__
+ 
+-#include "layering_rule_base.h"
++#include "../common/layering_rule_base/v1/layering_rule_base.h"
+ #include "disp_log.h"
+ 
+ #ifdef CONFIG_MTK_ROUND_CORNER_SUPPORT
+--- a/drivers/misc/mediatek/include/mt-plat/sd_misc.h	2019-08-28 09:42:28.000000000 +0100
++++ b/drivers/misc/mediatek/include/mt-plat/sd_misc.h	2020-02-01 23:03:57.243666060 +0000
+@@ -23,7 +23,7 @@
+ #include <linux/mmc/sd.h>
+ #endif
+ 
+-#include <mt_sd.h>
++#include <../../../../mmc/host/mediatek/mt6755/mt_sd.h>
+ 
+ #ifndef FPGA_PLATFORM
+ extern void msdc_set_driving(struct msdc_host *host, struct msdc_hw *hw, bool sd_18);
+--- a/drivers/nfc/samsung/sec_nfc.c	2019-08-28 09:42:29.000000000 +0100
++++ b/drivers/nfc/samsung/sec_nfc.c	2020-02-01 23:05:06.915664319 +0000
+@@ -42,7 +42,7 @@
+ #include <asm/uaccess.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/nfc/sec_nfc.h>
+-#include <../../misc/mediatek/base/power/include/mt_clkbuf_ctl.h>	/*  for clock buffer */
++#include "../../misc/mediatek/base/power/include/mt_clkbuf_ctl.h"	/*  for clock buffer */
+ #include <linux/regulator/consumer.h>
+ 
+ #ifdef CONFIG_SEC_NFC_CLK_REQ
+@@ -51,8 +51,8 @@
+ #include <linux/wakelock.h>
+ #include <linux/of_gpio.h>
+ #include <linux/clk.h>
+-#include <../../misc/mediatek/include/mt-plat/mt_boot_common.h>
+-#include <../../misc/mediatek/include/mt-plat/mt_gpio.h>
++#include "../../misc/mediatek/include/mt-plat/mt_boot_common.h"
++#include "../../misc/mediatek/include/mt-plat/mt_gpio.h"
+ #include <linux/kthread.h>
+ 
+ #ifndef CONFIG_SEC_NFC_IF_I2C

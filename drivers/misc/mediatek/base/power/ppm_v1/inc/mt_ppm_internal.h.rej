@@ -1,0 +1,11 @@
+--- drivers/misc/mediatek/base/power/ppm_v1/inc/mt_ppm_internal.h	2019-08-28 09:42:28.000000000 +0100
++++ drivers/misc/mediatek/base/power/ppm_v1/inc/mt_ppm_internal.h	2020-02-01 21:44:36.343785036 +0000
+@@ -31,7 +31,7 @@
+ #include <linux/sched.h>
+ 
+ #include "mach/mt_ppm_api.h"
+-#include "mt_ppm_platform.h"
++#include "../src/mach/mt6755/mt_ppm_platform.h"
+ 
+ /*==============================================================*/
+ /* Definitions							*/

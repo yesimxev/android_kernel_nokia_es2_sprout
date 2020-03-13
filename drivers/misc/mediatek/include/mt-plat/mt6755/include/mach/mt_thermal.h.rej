@@ -1,0 +1,11 @@
+--- drivers/misc/mediatek/include/mt-plat/mt6755/include/mach/mt_thermal.h	2019-08-28 09:42:28.000000000 +0100
++++ drivers/misc/mediatek/include/mt-plat/mt6755/include/mach/mt_thermal.h	2020-02-01 21:43:07.971787245 +0000
+@@ -24,7 +24,7 @@
+ 
+ #include "mt-plat/sync_write.h"
+ #include "mtk_thermal_typedefs.h"
+-#include "mt_gpufreq.h"
++#include "../../../../base/power/mt6755/mt_gpufreq.h"
+ 
+ /*
+ Bank0 : CPU_mp0     (TS_MCU4)
